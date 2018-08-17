@@ -1,5 +1,14 @@
-mkdir -p /opt/soft
+### 环境建议（此文档使用了此环境）：
+centos: 7.4
+mysql: 5.7
+cmake: 3.9.3
 
+### 准备条件
+mkdir -p /opt/soft
+/usr/sbin/groupadd mysql
+/usr/sbin/useradd -g mysql mysql -s /sbin/nologin
+
+### 安装cmake
 wget http://tar.27aichi.cn/mysql/cmake-3.9.3.tar.gz
 
 tar zxf cmake-3.9.3.tar.gz && cd cmake-3.9.3
@@ -12,10 +21,10 @@ cd ../
 
 
 
-
+### 安装mysql
 wget http://tar.27aichi.cn/mysql/mysql-boost-5.7.19.tar.gz
+```
 tar zxf mysql-boost-5.7.19.tar.gz && cd mysql-5.7.19
- 
 cmake \
 -DCMAKE_INSTALL_PREFIX=/opt/soft/mysql-5.7.19 \
 -DMYSQL_DATADIR=/opt/mysql-5.7.19/ \
@@ -35,9 +44,8 @@ cmake \
 -DWITH_SYSTEMD=1 \
 -DWITH_DEBUG=0
 make && make install
- 
-/usr/sbin/groupadd mysql
-/usr/sbin/useradd -g mysql mysql -s /sbin/nologin
+ ```
+
  
 ### 增加mysql 路径到 /etc/profile 目录 (功能是增加环境变量)
 echo "PATH=\$PATH:/opt/soft/mysql-5.7.19/bin" >> /etc/profile
