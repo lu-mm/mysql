@@ -9,7 +9,10 @@ tar zxf cmake-3.9.3.tar.gz && cd cmake-3.9.3
 make && make install
 
 cd ../
- 
+
+
+
+
 wget http://tar.27aichi.cn/mysql/mysql-boost-5.7.19.tar.gz
 tar zxf mysql-boost-5.7.19.tar.gz && cd mysql-5.7.19
  
@@ -55,8 +58,11 @@ cp my.cnf /opt/soft/mysql-5.7.19/etc/
 ```
 /opt/soft/mysql-5.7.19/bin/mysqld --initialize-insecure --user=mysql --basedir=/opt/soft/mysql-5.7.19/ --datadir=/opt/mysql-5.7.19/
  ```
+### 启动数据库
+```
 cp /opt/soft/mysql-5.7.19/usr/lib/systemd/system/mysqld.service /usr/lib/systemd/system/mysqld.service
 systemctl start mysqld
+```
  
 ### 修改mysql root
 ```
@@ -79,5 +85,5 @@ drop user 'mysql.session'@localhost;
 ##增加管理用户
 GRANT ALL PRIVILEGES ON *.* TO YOUR_USER@'%' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
  
- 
+ ### 数据库开机启动
 systemctl enable mysqld
