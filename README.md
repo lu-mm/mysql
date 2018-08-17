@@ -1,11 +1,15 @@
 ### 环境建议（此文档使用了此环境）：
 centos: 7.4
+
 mysql: 5.7
+
 cmake: 3.9.3
 
 ### 准备条件
 mkdir -p /opt/soft
+
 /usr/sbin/groupadd mysql
+
 /usr/sbin/useradd -g mysql mysql -s /sbin/nologin
 
 ### 安装cmake
