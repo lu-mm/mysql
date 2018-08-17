@@ -1,9 +1,13 @@
 mkdir -p /opt/soft
 
 wget http://tar.27aichi.cn/mysql/cmake-3.9.3.tar.gz
+
 tar zxf cmake-3.9.3.tar.gz && cd cmake-3.9.3
+
 ./configure
+
 make && make install
+
 cd ../
  
 wget http://tar.27aichi.cn/mysql/mysql-boost-5.7.19.tar.gz
